@@ -4,6 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --shadow-color: rgba(246, 241, 213, 0.5);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -44,6 +45,7 @@
 }
 
 :root {
+  --shadow-color: rgba(246, 241, 213, 0.5);
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
@@ -79,6 +81,9 @@
 }
 
 .dark {
+  --dark-background:  radial-gradient(circle, #1a1a1a 0%, #0d0d0d 60%, #000000 100%);
+  --dark-text: #DDDDDD;
+  --dark-buuton: #363636;
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
   --card: oklch(0.208 0.042 265.755);
@@ -119,4 +124,8 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+body {
+  @apply bg-background text-foreground;
 }
