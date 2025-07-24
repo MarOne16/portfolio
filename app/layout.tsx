@@ -4,11 +4,12 @@ import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/navbar/navbar";
 import "./globals.css";
 
-
-
-const montserratMono = Montserrat({
+const montserrat = Montserrat({
   subsets: ["latin"],
-});
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-montserrat",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,17 +22,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${montserratMono.className} antialiased`}
-      >
+    <html lang="en" className={montserrat.variable}>
+      <body className="font-sans antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange>
+          disableTransitionOnChange
+        >
           <Navbar />
-            {children}
+          {children}
         </ThemeProvider>
       </body>
     </html>
