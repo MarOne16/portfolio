@@ -4,6 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --background-image: url("../public/backgroundLight.png");
   --shadow-color: oklch(0.948 0.048 100.23 / 0.3);
   --button-color: #F5F5F5;
   --text-color: #1A1A1A;
@@ -13,7 +14,7 @@
   --secondary-foreground: oklch(0.2 0 0);
   --base-font-size: 8px;
   --scale-factor: 1vw;
-  --background: oklch(1 0 0);
+  --background: radial-gradient(circle, #ffffff 0%, #f2f2f2 100%);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -45,6 +46,7 @@
 }
 
 .dark {
+  --background-image: url("../public/backgroundDark.png");
   --shadow-color: oklch(0.948 0.048 100.23 / 0.3);
   --button-color: #363636;
   --text-color: #DDDDDD;
@@ -52,7 +54,7 @@
   --primary-foreground: oklch(0.145 0 0);
   --secondary: oklch(0.2 0 0);
   --secondary-foreground: oklch(0.985 0 0);
-  --background: url("../public/background.png");
+  --background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.145 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -121,9 +123,21 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+body {
+  /* background-color: var(--background); */
+  scrollbar-width: none;
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring/50 overflow-hidden;
   }
   body {
     @apply bg-background text-foreground;

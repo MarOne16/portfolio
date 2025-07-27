@@ -1,20 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 import { useState, useEffect } from "react"
 import { ModeToggle } from "../toggleMode"
 import styles from "./nav_bar.module.css"
+import Navigator from "./navigator"
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
 
-  const menuItems = [
-    { label: "HOME", href: "#" },
-    { label: "ABOUT", href: "#" },
-    { label: "PROJECTS", href: "#" },
-    { label: "SERVICES", href: "#" },
-    { label: "CONTACT", href: "#" },
-  ]
 
   // Auto close after 3 seconds if not hovering
   useEffect(() => {
@@ -22,17 +15,34 @@ export default function NavBar() {
     if (isOpen && !isHovering) {
       timer = setTimeout(() => {
         setIsOpen(false)
-      }, 1000)
+      }, 100000)
     }
     return () => clearTimeout(timer)
   }, [isOpen, isHovering])
 
   return (
-    <div className={`${styles.navbar}`}>
-      <ModeToggle />
-      <span className={`${styles.navigation} md:text-base text-xs`}>hover here for navigation</span>
-      <span className={`${styles.logo} font-extrabold `}>MARONE</span>
-
+    <div>
+      <nav 
+        className={`${styles.navbar}`}
+        onMouseEnter={() => {
+          setIsOpen(true)
+          setIsHovering(true)}}
+          onMouseLeave={() => {
+            setIsHovering(false)
+            if (!isOpen) {
+              setIsOpen(false)
+            }
+          }}
+          >
+        <ModeToggle />
+        {!isHovering && !isOpen && (<span className={`${styles.navigation} md:text-base text-xs`}>hover here for navigation</span>)}
+        <span className={`${styles.logo} font-extrabold md:text-base text-xs`}>MARONE</span>
+      </nav>
+      <Navigator
+        setIsOpen={setIsOpen}
+        isOpen={isOpen}
+        setIsHovering={setIsHovering}
+      />
     </div>
       
   )
