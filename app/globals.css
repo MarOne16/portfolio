@@ -3,9 +3,15 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: Shuriken;
+  src: url("../public/the-last-shuriken/The\ Last\ Shuriken.ttf") format("truetype");
+}
+
 :root {
-  --background-image: url("../public/backgroundLight.png");
-  --shadow-color: oklch(0.948 0.048 100.23 / 0.3);
+  --font-style: "Shuriken", sans-serif;
+  --background-image: url("../public/background.jpg");
+  --shadow-color: #000000;
   --button-color: #F5F5F5;
   --text-color: #1A1A1A;
   --secondary: oklch(0.95 0 0);
@@ -46,8 +52,9 @@
 }
 
 .dark {
+  --font-style: "Montserrat", sans-serif;
   --background-image: url("../public/backgroundDark.png");
-  --shadow-color: oklch(0.948 0.048 100.23 / 0.3);
+  --shadow-color: #F6F1D5;
   --button-color: #363636;
   --text-color: #DDDDDD;
   --primary: oklch(0.9 0 0);
@@ -123,6 +130,8 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+
+
 body {
   /* background-color: var(--background); */
   scrollbar-width: none;
@@ -130,6 +139,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  font-family: var(--font-style)
 }
 body::-webkit-scrollbar {
   display: none;

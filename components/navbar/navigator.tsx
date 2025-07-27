@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './navigator.module.css';
+import Link from 'next/link'
 
 
 interface NavigatorProps {
@@ -10,11 +11,11 @@ interface NavigatorProps {
 
 const Navigator = ({ setIsOpen, setIsHovering, isOpen }: NavigatorProps) => {
     const menuItems = [
-        { label: "HOME", href: "#" },
-        { label: "ABOUT", href: "#" },
-        { label: "PROJECTS", href: "#" },
-        { label: "SERVICES", href: "#" },
-        { label: "CONTACT", href: "#" },
+        { label: "HOME", href: "/" },
+        { label: "ABOUT", href: "/about" },
+        { label: "PROJECTS", href: "/projects" },
+        { label: "SERVICES", href: "/services" },
+        { label: "CONTACT", href: "/contact" },
       ]
     
     return (
@@ -31,9 +32,11 @@ const Navigator = ({ setIsOpen, setIsHovering, isOpen }: NavigatorProps) => {
                 }}
                 >
               {menuItems.map((item, index) => (
-                <div key={index} className={styles.navigationCard} >
-                    <h2 className='font-light'>{item.label}</h2>
-                </div>
+                    <Link key={index} href={item.href}>
+                        <div key={index} className={styles.navigationCard} >
+                                <h2>{item.label}</h2>
+                        </div>
+                    </Link>
               ))}
             <span className={styles.line} onClick={() => setIsOpen(false)} />
         </div>

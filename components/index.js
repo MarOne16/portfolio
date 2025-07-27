@@ -1,0 +1,1 @@
+export {default as Marone} from './marone/Marone';
