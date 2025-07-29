@@ -15,13 +15,13 @@ export default function NavBar() {
     if (isOpen && !isHovering) {
       timer = setTimeout(() => {
         setIsOpen(false)
-      }, 100000)
+      }, 1000)
     }
     return () => clearTimeout(timer)
   }, [isOpen, isHovering])
 
   return (
-    <div>
+    <div className="col-span-1 row-span-1">
       <nav 
         className={`${styles.navbar}`}
         onMouseEnter={() => {

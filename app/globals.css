@@ -139,7 +139,8 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  font-family: var(--font-style)
+  font-family: var(--font-style);
+  display: grid;
 }
 body::-webkit-scrollbar {
   display: none;
