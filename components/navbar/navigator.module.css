@@ -10,7 +10,7 @@
     justify-content: center;
     gap: 2rem;
     flex-wrap: wrap;
-    border-bottom: 2px solid var(--button-color);
+    /* border-bottom: 2px solid var(--button-color); */
 }
 
 

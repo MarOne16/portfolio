@@ -107,13 +107,16 @@ export default function Lamp() {
       if (animationFrame.current) cancelAnimationFrame(animationFrame.current);
     };
   }, []);
-
+  console.log('isOn', isOn);
   return (
-    <div className={`${styles.lampContainer} hidden dark:block col-span-1  `} ref={lampRef}>
-        
-      
-      <Image onClick={() => setIsOn(true)}  className={styles.lamp} src="/lampOn.png" alt="Lamp" width={200} height={500} />
-      <div className={styles.lampShade}></div>
+    <div className={`${styles.lampContainer} hidden dark:flex `} ref={lampRef}>
+        {isOn ? (
+          <Image onClick={() => setIsOn(false)} className={styles.lamp} src="/lampOn.png" alt="Lamp" width={200} height={500} />
+        ) : (
+          <Image onClick={() => setIsOn(true)} className={styles.lamp} src="/lamp.png" alt="Lamp" width={200} height={500} />
+        )}
+      {isOn && <div  className={styles.lampShade}></div>}
+
     </div>
   );
 }

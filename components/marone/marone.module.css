@@ -6,7 +6,7 @@
     position: relative;
     margin: 0;
     padding: 0;
-    /* animation: marone 2s ease-in-out infinite; */
+	user-select: none;
 }
 
 @keyframes marone {
@@ -23,7 +23,7 @@
 
 .marone::before{
     position: relative;
-    left: 1%;
+	left: 1%;
     content: "Hi iam";
     color: var(--text-color);
     font-size: 16px;
@@ -34,17 +34,47 @@
     
 }
 .marone::after{
-    position: relative;
-    left: 72%;
-    content: "Front-end and UI|UX";
+	text-align: end;
+    content: var(--status-content, "");
     color: var(--text-color);
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     display: block;
-
+	background: linear-gradient(90deg, var(--primary), var(--secondary));
+	letter-spacing: 5px;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-repeat: no-repeat;
+	background-size: 80%;
+	animation: shine 7s linear infinite;
 }
+
+@keyframes shine {
+    0% {
+      background-position-x: -500%;
+    }
+    100% {
+      background-position-x: 500%;
+    }
+  }
+
+  .navigator-container {
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  }
+  
+  .navigator-container.closed {
+    max-height: 0;
+    opacity: 0;
+  }
+  
+  .navigator-container.open {
+    max-height: 500px; /* Adjust based on your Navigator height */
+    opacity: 1;
+  }
 
 @media screen and (max-width: 768px) {
     .marone {

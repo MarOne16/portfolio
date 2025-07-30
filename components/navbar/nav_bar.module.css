@@ -31,20 +31,7 @@
     position: relative;
   }
 
-  .navigator-container {
-    overflow: hidden;
-    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-  }
-  
-  .navigator-container.closed {
-    max-height: 0;
-    opacity: 0;
-  }
-  
-  .navigator-container.open {
-    max-height: 500px; /* Adjust based on your Navigator height */
-    opacity: 1;
-  }
+
   
   @keyframes shine {
     0% {
