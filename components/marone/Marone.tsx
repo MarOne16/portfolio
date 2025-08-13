@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import styles from "./marone.module.css";
+import "./marone.module.css";
 
 
 const Marone = () => {
@@ -21,6 +22,7 @@ const Marone = () => {
     return (
         <div className={styles.marone}
             style={{ ['--status-content' as string]: `"${status}"` }}
+            id='textOutside'
         >
             <h1>MARONE</h1>
         </div>

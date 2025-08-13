@@ -8,29 +8,26 @@
   /* z-index: 10; */
   top: -70px;
   /* display: none; */
+  pointer-events: painted;
+  z-index: 10;
 }
 
 .lamp {
   z-index: 10;
-  pointer-events: none;
 }
 
 
 .lampShade {
   position: relative;
-  top: -26px;
-  flex-grow: 1;
-  background-color: rgba(246, 241, 213, 0.05);
-  filter: drop-shadow(0 0 50px rgba(246, 241, 213, 0.10));
-  width: 100%;
-  min-width: 1000px;
-  height: 200vh;
-  border-radius: 50% 50% 0 0;
+  top: -100px;
+  --lamp-width: 2800px;
+  width: var(--lamp-width);
+  height: 0px;
+  border-left: calc(var(--lamp-width) / 2) solid transparent;
+  border-right: calc(var(--lamp-width) / 2) solid transparent;
+  border-bottom: 150vh solid rgba(246, 241, 213, 0.142);
   -webkit-filter: blur(5px);
   filter: blur(5px);
-  /* /* z-index: -1; */
-  opacity: 1;
-  transition: all 300ms;
 }
 
 @media screen and (max-width: 768px) {
@@ -38,10 +35,9 @@
     transform: scale(0.6);
   }
   .lampShade {
-    top: -100px;
-    width: 100%;
-    min-width: 600px;
-    height: 150vh;
+    --lamp-width: 1400px;
+    top: -150px;
+    border-bottom: 150vh solid rgba(246, 241, 213, 0.10);
   }
   
 }

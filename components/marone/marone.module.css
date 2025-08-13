@@ -1,5 +1,7 @@
 .marone{
-    color: var(--text-color);
+    /* color: rgba(246, 241, 213, 0.714); */
+	color: var(--text-color);
+	opacity: 0.5;
     font-size: 128px;
     font-weight: 700;
     line-height: normal;
@@ -8,6 +10,13 @@
     padding: 0;
 	user-select: none;
 }
+
+
+.marone.highlight {
+	opacity: 1;
+	transition: all 0.3s ease;
+}
+
 
 @keyframes marone {
     0% {
